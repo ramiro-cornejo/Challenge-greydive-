@@ -1,10 +1,19 @@
+import React, {useState} from 'react';
 
 import './App.css';
+import Home from './components/Home';
+import Form from './components/Form';
+
 
 
 function App() {
+  
+  const [formulario, setFormulario] = useState(null)
+
   return (
-    <h1>Inicio de proyecto</h1>
+    <div className=''>
+      { formulario ? <Home/> : <Form/> }
+    </div>
 
   );
 }
