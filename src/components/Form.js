@@ -8,7 +8,7 @@ const Form = () => {
             <div className="col-md-8"></div>
             <div className="col-md-4">
                 <div className="mt-5 ms-5">
-                    <h1> {registro ? `registro` : "Inicio sesion"} </h1>
+                    <h1> {registro ? `registro` : "Formulario"} </h1>
                 </div>
                 <form>
                     <div className="mb-3">
@@ -42,13 +42,13 @@ const Form = () => {
                     </div>
 
                     <div className="mb-3">
-                        <div class="form-floating">
+                        <div className="form-floating">
                             <select
-                                class="form-select"
+                                className="form-select"
                                 id="floatingSelect"
                                 aria-label="Floating label select example"
                             >
-                                <option selected>País de origen</option>
+                                <option value>País de origen</option>
                                 <option value="argentina">Argentina</option>
                                 <option value="brasil">Brasil</option>
                                 <option value="chile">Chile</option>
@@ -58,20 +58,28 @@ const Form = () => {
                                 <option value="uruguay">Uruguay</option>
                                 <option value="venezuela">Venezuela</option>
                             </select>
-                            <label for="floatingSelect">¿Cuál es tu país de origen?</label>
+                            <label htmlFor="floatingSelect">¿Cuál es tu país de origen?</label>
                         </div>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                        <label class="form-check-label" for="flexCheckDefault">¿Acepta los términos y condiciones?</label>
+                    <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                        <label className="form-check-label" htmlFor="flexCheckDefault">¿Acepta los términos y condiciones?</label>
                     </div>
 
                     <hr></hr>
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    <div className="col-12">
+                        <button className="btn btn-primary" type="submit">
+                            {registro ? 'registrate' : 'Enviar'}
+                        </button>
                     </div>
                 </form>
+
+                <div className="form-group">
+                    <button className="btn btn-secondary mt-4 form-control" onClick={() => setRegistro(!registro)}>
+                        {registro ? 'ya completaste el form? Ver respuestas' : 'no completaste el form? Registrate'}
+                    </button>
+                </div>
             </div>
         </div>
     );
